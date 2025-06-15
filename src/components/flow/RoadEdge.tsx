@@ -8,7 +8,7 @@ import {
 import { Slider } from "@/components/ui/slider"
 import { Label } from '@/components/ui/label';
 
-export interface RoadEdgeData {
+export interface RoadEdgeData extends Record<string, unknown> {
   weight: number;
   onWeightChange?: (edgeId: string, newWeight: number) => void;
 }
