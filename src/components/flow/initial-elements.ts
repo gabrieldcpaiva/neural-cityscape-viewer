@@ -1,7 +1,9 @@
 
 import { Node, Edge } from '@xyflow/react';
+import { CityNodeData } from './CityNode';
+import { RoadEdgeData } from './RoadEdge';
 
-export const initialNodes: Node[] = [
+export const initialNodes: Node<CityNodeData>[] = [
   {
     id: 'i1',
     type: 'city',
@@ -34,7 +36,7 @@ export const initialNodes: Node[] = [
   },
 ];
 
-export const initialEdges: Edge[] = [
+export const initialEdges: Edge<RoadEdgeData>[] = [
   { id: 'e-i1-h1', source: 'i1', target: 'h1', type: 'road', data: { weight: 0.3 } },
   { id: 'e-i1-h2', source: 'i1', target: 'h2', type: 'road', data: { weight: -0.6 } },
   { id: 'e-i2-h1', source: 'i2', target: 'h1', type: 'road', data: { weight: 0.8 } },

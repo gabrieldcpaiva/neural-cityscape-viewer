@@ -1,6 +1,6 @@
 
 import { useState, useCallback } from 'react';
-import { Node, Edge, useNodesState, useEdgesState } from '@xyflow/react';
+import { useNodesState, useEdgesState } from '@xyflow/react';
 import NeuralNetFlow from '@/components/flow/NeuralNetFlow';
 import ControlPanel from '@/components/ui/ControlPanel';
 import { initialNodes, initialEdges } from '@/components/flow/initial-elements';
@@ -29,8 +29,8 @@ const Index = () => {
         // Calculate hidden layer activations
         const h1 = getNode('h1');
         if (h1) {
-            const w_i1_h1 = getEdge('i1', 'h1')?.data.weight || 0;
-            const w_i2_h1 = getEdge('i2', 'h1')?.data.weight || 0;
+            const w_i1_h1 = getEdge('i1', 'h1')?.data?.weight || 0;
+            const w_i2_h1 = getEdge('i2', 'h1')?.data?.weight || 0;
             const act_i1 = getNode('i1')?.data.activation || 0;
             const act_i2 = getNode('i2')?.data.activation || 0;
             h1.data.activation = sigmoid(act_i1 * w_i1_h1 + act_i2 * w_i2_h1);
@@ -38,8 +38,8 @@ const Index = () => {
 
         const h2 = getNode('h2');
         if (h2) {
-            const w_i1_h2 = getEdge('i1', 'h2')?.data.weight || 0;
-            const w_i2_h2 = getEdge('i2', 'h2')?.data.weight || 0;
+            const w_i1_h2 = getEdge('i1', 'h2')?.data?.weight || 0;
+            const w_i2_h2 = getEdge('i2', 'h2')?.data?.weight || 0;
             const act_i1 = getNode('i1')?.data.activation || 0;
             const act_i2 = getNode('i2')?.data.activation || 0;
             h2.data.activation = sigmoid(act_i1 * w_i1_h2 + act_i2 * w_i2_h2);
@@ -48,8 +48,8 @@ const Index = () => {
         // Calculate output layer activation
         const o1 = getNode('o1');
         if (o1) {
-            const w_h1_o1 = getEdge('h1', 'o1')?.data.weight || 0;
-            const w_h2_o1 = getEdge('h2', 'o1')?.data.weight || 0;
+            const w_h1_o1 = getEdge('h1', 'o1')?.data?.weight || 0;
+            const w_h2_o1 = getEdge('h2', 'o1')?.data?.weight || 0;
             const act_h1 = getNode('h1')?.data.activation || 0;
             const act_h2 = getNode('h2')?.data.activation || 0;
             o1.data.activation = sigmoid(act_h1 * w_h1_o1 + act_h2 * w_h2_o1);

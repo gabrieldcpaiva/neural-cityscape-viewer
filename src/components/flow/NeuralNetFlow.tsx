@@ -11,15 +11,15 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-import CityNode from './CityNode';
-import RoadEdge from './RoadEdge';
+import CityNode, { CityNodeData } from './CityNode';
+import RoadEdge, { RoadEdgeData } from './RoadEdge';
 
 const nodeTypes = { city: CityNode };
 const edgeTypes = { road: RoadEdge };
 
 interface NeuralNetFlowProps {
-  nodes: Node[];
-  edges: Edge[];
+  nodes: Node<CityNodeData>[];
+  edges: Edge<RoadEdgeData>[];
   onNodesChange: OnNodesChange;
   onEdgesChange: OnEdgesChange;
   onWeightChange: (edgeId: string, newWeight: number) => void;
