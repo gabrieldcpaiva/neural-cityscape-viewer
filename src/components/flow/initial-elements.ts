@@ -1,7 +1,6 @@
 
 import { Node, Edge } from '@xyflow/react';
-import { CityNodeData } from './CityNode';
-import { RoadEdgeData } from './RoadEdge';
+import { CityNodeData, RoadEdgeData } from './types';
 
 export const initialNodes: Node<CityNodeData>[] = [
   {

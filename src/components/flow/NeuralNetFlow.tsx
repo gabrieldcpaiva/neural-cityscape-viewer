@@ -11,8 +11,9 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 
-import CityNode, { CityNodeData } from './CityNode';
-import RoadEdge, { RoadEdgeData } from './RoadEdge';
+import CityNode from './CityNode';
+import RoadEdge from './RoadEdge';
+import { CityNodeData, RoadEdgeData } from './types';
 
 const nodeTypes = { city: CityNode };
 const edgeTypes = { road: RoadEdge };

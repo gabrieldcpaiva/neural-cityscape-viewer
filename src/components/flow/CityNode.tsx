@@ -4,13 +4,7 @@ import { Handle, Position, NodeProps, Node } from '@xyflow/react';
 import { Building2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
-
-export interface CityNodeData extends Record<string, unknown> {
-  label: string;
-  layer: 'input' | 'hidden' | 'output';
-  activation: number;
-  isOutput?: boolean;
-}
+import { CityNodeData } from './types';
 
 type CityNodeType = Node<CityNodeData>;
 
