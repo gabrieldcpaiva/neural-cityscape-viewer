@@ -8,7 +8,12 @@ import {
 import { Slider } from "@/components/ui/slider"
 import { Label } from '@/components/ui/label';
 
-const RoadEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }: EdgeProps) => {
+interface RoadEdgeData {
+  weight: number;
+  onWeightChange: (edgeId: string, newWeight: number) => void;
+}
+
+const RoadEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }: EdgeProps<RoadEdgeData>) => {
   const [edgePath, labelX, labelY] = getBezierPath({
     sourceX,
     sourceY,

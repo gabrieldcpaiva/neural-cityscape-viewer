@@ -5,7 +5,14 @@ import { Building2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
-const CityNode = ({ data, isConnectable }: NodeProps) => {
+interface CityNodeData {
+  label: string;
+  layer: 'input' | 'hidden' | 'output';
+  activation: number;
+  isOutput?: boolean;
+}
+
+const CityNode = ({ data, isConnectable }: NodeProps<CityNodeData>) => {
   const { label, layer, activation, isOutput } = data;
 
   return (
