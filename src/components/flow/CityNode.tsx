@@ -1,6 +1,6 @@
 
 import { memo } from 'react';
-import { Handle, Position, NodeProps } from '@xyflow/react';
+import { Handle, Position, NodeProps, Node } from '@xyflow/react';
 import { Building2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -12,7 +12,9 @@ export interface CityNodeData {
   isOutput?: boolean;
 }
 
-const CityNode = ({ data, isConnectable }: NodeProps<CityNodeData>) => {
+type CityNodeType = Node<CityNodeData>;
+
+const CityNode = ({ data, isConnectable }: NodeProps<CityNodeType>) => {
   const { label, layer, activation, isOutput } = data;
 
   return (

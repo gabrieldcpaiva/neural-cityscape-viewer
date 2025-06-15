@@ -1,5 +1,5 @@
 
-import { EdgeProps, getBezierPath, EdgeLabelRenderer, BaseEdge } from '@xyflow/react';
+import { EdgeProps, getBezierPath, EdgeLabelRenderer, BaseEdge, Edge } from '@xyflow/react';
 import {
   Popover,
   PopoverContent,
@@ -13,7 +13,9 @@ export interface RoadEdgeData {
   onWeightChange?: (edgeId: string, newWeight: number) => void;
 }
 
-const RoadEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }: EdgeProps<RoadEdgeData>) => {
+type RoadEdgeType = Edge<RoadEdgeData>;
+
+const RoadEdge = ({ id, sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition, data }: EdgeProps<RoadEdgeType>) => {
   const [edgePath, labelX, labelY] = getBezierPath({
     sourceX,
     sourceY,
