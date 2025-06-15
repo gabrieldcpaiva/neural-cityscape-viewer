@@ -26,6 +26,12 @@ interface NeuralNetworkProps {
 
 const sigmoid = (x: number): number => 1 / (1 + Math.exp(-x));
 
+// Helper function to convert activation to color
+const activationToColor = (activation: number): string => {
+  const intensity = Math.round(activation * 255);
+  return `rgb(${255 - intensity}, ${255 - intensity}, 255)`;
+};
+
 const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
   layers,
   inputValues,
@@ -45,13 +51,14 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
     layers.forEach((layerSize, layerIndex) => {
       for (let neuronIndex = 0; neuronIndex < layerSize; neuronIndex++) {
         const nodeId = `Layer${layerIndex + 1}_${neuronIndex + 1}`;
+        const activation = layerIndex === 0 ? (inputValues[neuronIndex] || 0) : 0;
         nodes.push({
           data: {
             id: nodeId,
             label: nodeId,
             layer: layerIndex,
             neuron: neuronIndex,
-            activation: layerIndex === 0 ? (inputValues[neuronIndex] || 0) : 0
+            activation: activation
           },
           position: {
             x: 150 + layerIndex * 200,
@@ -140,24 +147,24 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
         {
           selector: 'node',
           style: {
-            'background-color': 'data(activation)',
+            'background-color': '#E3F2FD',
             'label': 'data(label)',
             'text-valign': 'center',
             'text-halign': 'center',
-            'color': '#ffffff',
+            'color': '#000000',
             'font-size': '10px',
             'width': '60px',
             'height': '60px',
             'border-width': '2px',
-            'border-color': '#333'
+            'border-color': '#333333'
           }
         },
         {
           selector: 'edge',
           style: {
-            'width': 'mapData(weight, -1, 1, 1, 8)',
-            'line-color': (ele: any) => ele.data('weight') >= 0 ? '#4CAF50' : '#F44336',
-            'target-arrow-color': (ele: any) => ele.data('weight') >= 0 ? '#4CAF50' : '#F44336',
+            'width': '2px',
+            'line-color': '#4CAF50',
+            'target-arrow-color': '#4CAF50',
             'target-arrow-shape': 'triangle',
             'curve-style': 'bezier',
             'label': 'data(weight)',
@@ -207,8 +214,7 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
       // Update node colors based on activations
       cyInstance.current.nodes().forEach((node: NodeSingular) => {
         const activation = newActivations[node.id()] || 0;
-        const intensity = Math.round(activation * 255);
-        const color = `rgb(${255 - intensity}, ${255 - intensity}, 255)`;
+        const color = activationToColor(activation);
         node.style('background-color', color);
         node.data('activation', activation);
       });
@@ -217,9 +223,11 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({
       cyInstance.current.edges().forEach((edge: EdgeSingular) => {
         const weight = weights.find(w => w.id === edge.id())?.weight || 0;
         edge.data('weight', weight.toFixed(3));
-        edge.style('width', Math.abs(weight) * 8 + 1);
-        edge.style('line-color', weight >= 0 ? '#4CAF50' : '#F44336');
-        edge.style('target-arrow-color', weight >= 0 ? '#4CAF50' : '#F44336');
+        const width = Math.abs(weight) * 8 + 1;
+        const lineColor = weight >= 0 ? '#4CAF50' : '#F44336';
+        edge.style('width', `${width}px`);
+        edge.style('line-color', lineColor);
+        edge.style('target-arrow-color', lineColor);
       });
     }
   }, [inputValues, weights]);
