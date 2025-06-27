@@ -1,73 +1,65 @@
-# Welcome to your Lovable project
+# Neural Cityscape Viewer
 
-## Project info
+**Neural Cityscape Viewer** is a creative app for visualizing and interacting with feedforward neural networks using metaphors from neuroscience. In this app, neurons are represented as cities and synapses as roads connecting them—turning complex neural structures into an engaging, accessible city map.
 
-**URL**: https://lovable.dev/projects/01a79671-b381-4dc2-9828-f5518b671176
+This project combines scientific accuracy with imaginative visualization. It’s designed to make neural networks easier to understand, whether you’re a student, educator, or just curious. Inspired by a passion for physics and simplifying complex concepts, this tool aims to bridge the gap between science and intuition.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **City Metaphor:** Neurons as cities, synapses as roads—navigate your neural network visually.
+- **Interactive Exploration:** Click, zoom, and discover how neural signals travel.
+- **Educational Focus:** Simplifies core ideas in neural networks for accessible learning.
+- **Creative Visualization:** Blends scientific accuracy with creative design.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/01a79671-b381-4dc2-9828-f5518b671176) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Quick Start
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To run locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Step 1: Clone the repository using your Git URL.
 git clone <YOUR_GIT_URL>
 
 # Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+cd neural-cityscape-viewer
 
-# Step 3: Install the necessary dependencies.
+# Step 3: Install dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Or [edit and deploy instantly via Lovable](https://lovable.dev/projects/01a79671-b381-4dc2-9828-f5518b671176).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Built With
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- [Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [shadcn-ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lovable](https://lovable.dev/) (for fast prototyping and deployment)
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Motivation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project was created for the Lovable free weekend hackathon, inspired by a love of physics and a desire to make complex scientific ideas approachable and fun.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/01a79671-b381-4dc2-9828-f5518b671176) and click on Share -> Publish.
+## License
 
-## Can I connect a custom domain to my Lovable project?
+_Coming soon: license info!_
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Contributions
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Feel free to open issues or PRs if you have ideas or suggestions!
